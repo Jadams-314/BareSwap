@@ -11,19 +11,19 @@ sprint goal:
 days=points
 
 Justin- Front end ui (website)High priority 7 points
-
+-------------------------
 Everyone- Pseudo database high priority 4 points
-
+-------------------------
 Abdul- Back end Java Highest priority 6 points
-
+-------------------------
 Nana- Junit testing (java dependency) medium priority 2 points
-
+-------------------------
 Jacob- QA testing low priority 1 point
-
+-------------------------
   For prototype one we should be able to have a functional portal that allows for account creation with the ability to login with saved credentials. 
   User should be able to upload image.
   User should be able to download stored images from other users
--------------------------------------------------------------------------------------------------------------------------------------------------
+  
 Back end java should be done by Oct 14th. image stored to file when 'selling' and image removed from file when 'bought'. Talked to professor and this is all the functionality we need for first sprint.
 
 Front end Website needs to be done by Oct 14th. Functional UI and shows images stored in java.
