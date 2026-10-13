@@ -3,8 +3,7 @@ const container = document.getElementById('image-container');
 
 
 
-
-
+const textOverlay = document.getElementById("textOverlay");
 
 
 
@@ -16,41 +15,46 @@ function checkreset(){
     window.location.reload();
 
 }
-flag=false;
-window.onload = function checkuser(){
-    let user = document.getElementById("user").value;
-    if (user){
 
-        flag=true;
-    }
-}
 
-window.onload = function overlay(){
-let textOverlay = document.getElementById('textOverlay');
-    
-    if (flag){
-
-    textOverlay.innerHTML = "Bare Swap <br>";
-    textOverlay.style.position = 'absolute';
-    textOverlay.style.top = '20px';       
-    textOverlay.style.left = '20px';      
-    textOverlay.style.color = 'gold';     
-    textOverlay.style.fontSize = '48px';   
-    textOverlay.style.fontWeight = 'bold';
-
-    }
-    else{
-        return;
-    }
-}
-   
-window.onload = function checkpass(){
+function checkuser(){
     let user = document.getElementById("user").value;
     let first = document.getElementById("first").value;
     let second = document.getElementById("second").value;
-    let message = document.getElementById("message");
+    let message2 = document.getElementById("message2");
+    //const TestUser='user'
+    //const TestPassword='password'
+    attemps=5;
+     if (user.value ==='user'){
+        
 
-    if(user.value){
+        
+        if (first !=="password" || second !=="password"){
+            message2.innerHTML="incorrect password entered you have " + attemps + "attempts remaining<br>";
+        attempts-=1;
+            if(attempts ===0){
+                message2.innerHTML="<br> go away<br>";
+            }
+            else{
+                return;
+            }
+        }
+        else{
+            message2.innerHTML="<br>welcome" + TestUser + "<br>";
+        }
+    }
+}
+   
+
+
+
+function checkpass(){
+    
+    let first = document.getElementById("first").value;
+    let second = document.getElementById("second").value;
+    let message = document.getElementById("message");
+   
+    
     if (first  ==="" || second ===""){
         /*let h3= document.getElementById("h3-tag");
         */
@@ -76,14 +80,14 @@ window.onload = function checkpass(){
 
     }
 }
-
-}
+    
+//}
 window.addEventLIstener('load',()=>{
 
-    document.getelementById("user").addEventListener('change',checkuser);
-    document.getelementById("first").addEventListener('change',checkpass);
-    document.getelementById("second").addEventListener('change',checkpass);
-    document.getelementById("textOverlay").addEventListener('load',overlay);
+    //document.getelementById("submit").addEventListener('click',checkuser);
+    //document.getelementById("first").addEventListener('change',checkpass);
+    //document.getelementById("second").addEventListener('change',checkpass);
+    //document.getelementById("textOverlay").addEventListener('load',overlay);
     document.getElementById("submit").addEventListener('click',checkpass);
     document.getElementById("reset").addEventListener('click',checkreset);
 });
