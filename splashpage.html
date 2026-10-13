@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>JavaScript In-class Exercise</title>
-  <script src="./javascripts/splashpagejs"></script>
+  <title>Sprint_1 splashpage</title>
+  <script src="./javascript/splashpage.js"></script>
 </head>
 <body>
     <style>
@@ -13,7 +13,7 @@
     </style>
     <div id="image-container" style="position: relative; display: inline-block;">
         
-        <h1 style="position: absolute; top: 110px; left: 120px; margin: 10; color: rgb(201, 54, 54);"> Bare Swap </h1>
+        <h1 id=textOverlay style="position: absolute; top: 110px; left: 120px; margin: 10;"> </h1>
         <img src="test image 2.jpg" alt="Background" style="display: block; width: 100%;">
     </div>
   
@@ -24,11 +24,11 @@
     <input type = "password"  id = "first" placeholder="Password"><br>
     <input type = "password"  id = "second" placeholder="Re-enter Password">
     
-    <input type = "reset"  id = "reset" >
-    <input type = "button" value="submit" id = "submit" onclick="checkpass()"><!-- do not use type = "submit" for now-->
+    <input type = "button" value="reset"  id = "reset" onclick=;checkreset()>
+    <input type = "button" value="submit" id = "submit" onclick=;checkpass()>
     
   </form>
-  <h3 id="message"></h3>
+  <message id="message"></message>
   
 </body>
 </html>

@@ -2,7 +2,7 @@
 const container = document.getElementById('image-container');
 
 
-const textOverlay = document.createElement('div');
+const textOverlay = document.getElementById('textOverlay');
 textOverlay.innerText = "Bare Swap";
 
 
@@ -16,18 +16,22 @@ textOverlay.style.fontWeight = 'bold';
 
 container.appendChild(textOverlay);
 
+function checkreset(){
 
+    window.location.reload();
+
+}
 
    
 function checkpass(){
     let user = document.getElementById("user").value;
     let first = document.getElementById("first").value;
-    let second =document.getElementById("second").value;
+    let second = document.getElementById("second").value;
     let message = document.getElementById("message");
 
-    if(user!== ""){
+    if(user.value){
     if (first  ==="" || second ===""){
-        /*let h3= document.getElementByID("h3-tag");
+        /*let h3= document.getElementById("h3-tag");
         */
         message.innerHTML="you did not enter a password <br> Please enter one now <br>";
         message.style.color="red";
@@ -54,5 +58,6 @@ function checkpass(){
 
 }
 window.addEventLIstener('load',()=>{
-    document.getElementByID("submit") .addEventListener('click',checkpass);
+    document.getElementById("submit").addEventListener('click',checkpass);
+    document.getElementById("reset").addEventListener('click',checkreset);
 });
