@@ -1,4 +1,4 @@
-// Dom elements cached at the top for performance and readability
+
 const container = document.getElementById('image-container'); 
 const textOverlay = document.getElementById("textOverlay"); 
 container.appendChild(textOverlay);
