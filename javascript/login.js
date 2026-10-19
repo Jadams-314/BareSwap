@@ -1,8 +1,21 @@
 
 const container = document.getElementById('image-container'); 
 const textOverlay = document.getElementById("textOverlay"); 
-container.appendChild(textOverlay);
 
+  const signupbtn = document.getElementById('showBtn');
+  const login = document.getElementById('form1');
+  const signup = document.getElementById('form2');
+if (signupbtn && login && signup){
+ 
+  signupbtn.addEventListener('click', (e) => {
+     e.preventDefault();
+    login.style.display = 'none';
+    signup.style.display = 'block';
+  });
+}
+if(container && textOverlay){
+container.appendChild(textOverlay);
+}
 // Credentials constants
 const TEST_USER = "user";
 const TEST_PASSWORD = "password";
@@ -10,7 +23,11 @@ const TEST_PASSWORD = "password";
 function checkreset() { 
     window.location.reload(); 
 }
-/*
+function checkreturnlogin(){
+    window.location.reload();
+
+}
+
 function checkuser() { 
     const user = document.getElementById("user").value; 
     const first = document.getElementById("first").value; 
@@ -23,8 +40,9 @@ function checkuser() {
         if (first !== TEST_PASSWORD || second !== TEST_PASSWORD) {
             message2.innerHTML = "Incorrect password entered.";
             message2.style.color = "red";
-            checkpass(); 
+            //checkpass(); 
         } else {
+            //checkpass();
             if (checkpass()) {
                 message2.innerHTML = `<br>Welcome, ${TEST_USER}!<br>`;
                 message2.style.color = "green";
@@ -34,9 +52,9 @@ function checkuser() {
         
         message2.innerHTML = "Incorrect username.";
         message2.style.color = "red";
-        checkpass();
+        //checkpass();
     }
-}*/
+}
 
 function checkpass() { 
     const user = document.getElementById("user").value;
@@ -57,11 +75,11 @@ function checkpass() {
     } 
     else{ 
     
-    //message.innerHTML = "Hooray! You have matched passwords! <br>"; 
+    message.innerHTML = "Hooray! You have matched passwords! <br>"; 
     message.innerHTML = "<br>Welcome" + "  " + user + "!";
     message.style.color = "green";
     setTimeout(() => {
-     window.location.href = 'index.html';
+     window.location.href = 'list.html';
   }, 2000);
    
 
@@ -71,6 +89,7 @@ function checkpass() {
 
 
 window.addEventListener('load', () => { 
-    document.getElementById("submit").addEventListener('click', checkpass); 
+    document.getElementById("submit").addEventListener('click', checkuser); 
     document.getElementById("reset").addEventListener('click', checkreset); 
+    document.getElementById("rtrnlogin").addEventListener('click', checkreturnlogin); 
 });
