@@ -1,6 +1,27 @@
 # BareSwap
 Comp 390 Group Project
 
+
+Sprint 2 due Nove 1 2026:
+
+spring goal:
+
+20 point budget
+days=point
+
+login ----> signup
+log-----> login
+rename html and js
+
+
+Abdul/jacob database (Highest priority) 8 points
+justin nmp server (connection between database and website) (high priority) 5
+nana image upload to database (medium priority) 2 points
+abdul user authentication (lowest priority) 1 points
+justin css redesign website/renaming
+
+
+
 Sprint 1 due Oct 11 2026:
 
 sprint goal:
