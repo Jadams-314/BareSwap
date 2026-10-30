@@ -1,0 +1,29 @@
+//Terminal commands to set up node with required dependancies:
+
+mkdir //name of node application
+cd //directory of node application(will be one below current directory)
+//example:
+// cd c/users/jcach/documents/'fall 26'/bareswap/'Bareswap Sprint 2 demo'
+
+npm init -y
+npm install cors //(cross-origin Resource Sharing)
+//Allows resource sharing from different origins. Allows API requests
+npm install sqlite3
+node -v //check current node version to avoid conflicts
+npm -v //check current npm version to avoid conflicts
+
+//Edit package.json for npm start
+
+//Add "start" to "scripts"
+"scripts:{
+
+    "start: "node index.js"
+}
+//Starting node server:
+
+//Make sure you are in 
+//the directory the server is located in
+//then in terminal type:
+
+npm start
+

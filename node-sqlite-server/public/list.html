@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Swap - List an Item</title> 
+<link rel="stylesheet" href="./stylesheets/bareswap.css">
+<style>
+  .form-container { border: 1px solid #ccc; padding: 20px; margin: 15px 0; border-radius: 4px; background: #fff; max-width: 400px; }
+  .form-group { margin-bottom: 15px; }
+  .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+  .form-group input, .form-group textarea { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+  .btn-submit { background-color: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+  .btn-submit:hover { background-color: #0056b3; }
+  .message { margin-top: 15px; font-weight: bold; }
+</style>
+</head> 
+<body> 
+<div class="logo-container"> 
+  <img src="./images/test-image-2.jpg" alt="Logo" class="logo-img"> 
+  <div class="overlay-text">Bare Swap</div> 
+</div> 
+
+<a href="/">Home Page</a>
+<a href="store.html">View Store</a>
+
+<div class="form-container">
+  <h2>List a New Item</h2>
+  <form id="list-item-form"> 
+    <div class="form-group">
+      <label for="name">Item Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="price">Price ($):</label>
+      <input type="number" id="price" name="price" step="0.01" min="0" required>
+    </div>
+    <button type="submit" class="btn-submit">Add Item</button>
+  </form> 
+  <div id="message-container" class="message"></div>
+</div>
+
+<script>
+    document.getElementById('list-item-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.textContent = '';
+        
+        const name = document.getElementById('name').value;
+        const description = document.getElementById('description').value;
+        const price = parseFloat(document.getElementById('price').value);
+
+        try {
+            
+            const response = await fetch('http://localhost:3000/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, description, price })
+            });
+
+            if (response.ok) {
+                messageContainer.style.color = 'green';
+                messageContainer.textContent = 'Item added successfully!';
+                document.getElementById('list-item-form').reset();
+            } else {
+                const errorData = await response.json();
+                messageContainer.style.color = 'red';
+                messageContainer.textContent = `Error: ${errorData.message || 'Could not add item.'}`;
+            }
+        } catch (error) {
+            messageContainer.style.color = 'red';
+            messageContainer.textContent = 'Network error. Could not connect to backend.';
+        }
+    });
+</script> 
+</body>
+</html>

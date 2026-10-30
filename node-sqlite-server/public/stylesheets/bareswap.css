@@ -1,0 +1,127 @@
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  height: 100%; 
+  font-family: Arial, sans-serif; 
+} 
+
+body { 
+  box-sizing: border-box; 
+  border-left: 15px solid crimson; 
+  border-right: 15px solid crimson; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; 
+  padding: 20px; 
+  position: relative; 
+} 
+.mainpage{
+   
+            
+  
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover; 
+  background-attachment: fixed; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; 
+  padding: 60px; 
+  position: relative;   
+}
+.item-card {
+ border: 1px solid #ccc;
+ padding: 15px;
+ margin: 15px 0;
+ border-radius: 4px;
+ background: #fff;
+        }
+.price {
+  color: green;
+  font-weight: bold;
+}
+.buy-btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.buy-btn:hover {
+  background-color: #0056b3;
+}
+.logo-container { 
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  max-width: 100px; 
+  width: 100%; 
+} 
+
+.logo-img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  border-radius: 8px; 
+} 
+
+.overlay-text { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  color: red; 
+  font-size: 16px; 
+  font-weight: bold; 
+  text-align: center; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  width: 90%; 
+  pointer-events: none; 
+} 
+
+form { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 40px; 
+} 
+.form1{
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 40px; 
+
+}
+.store-container { 
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  max-width: 100px; 
+  width: 100%; 
+} 
+
+.store-img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  border-radius: 8px; 
+} 
+store{
+ store { 
+  display: block;      /* Ensures the custom element layout acts like a standard container */
+  width: 100%; 
+  max-width: 600px;    /* Prevents the item cards from stretching too wide */
+  margin-top: 30px;    /* Pushes it neatly below your navigation links */
+  color: #333;         /* Changes the text color from red to dark grey so item text is readable */
+  font-weight: normal; /* Resets the text style so item descriptions aren't forced bold */
+  text-shadow: none;   /* Removes the background shadow meant for the logo overlay */
+}
+
+
+}
