@@ -23,7 +23,7 @@
         async function loadItems() {
             const container = document.getElementById('store-container');
             try {
-                // Fetch data from your Express backend
+                //fetch data from Items array
                 const response = await fetch('http://localhost:3000/items');
                 const items = await response.json();
                 
@@ -35,7 +35,7 @@
                     return;
                 }
                 
-                // Loop through database items and render them
+                // Loop through database items and render them(replaces div 'item-card' which is blank with the following code
                 items.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'item-card';
@@ -46,7 +46,7 @@
                         <button class="buy-btn">Buy Now</button>
                     `;
                     
-                    // Add click event listener to the buy button
+                    // Add click event listener to the buy button, When clicked. price element changes from the int price from db to 'SOLD'
                     const buyButton = div.querySelector('.buy-btn');
                     buyButton.addEventListener('click', () => {
                         const nameElement = div.querySelector('.item-name');
