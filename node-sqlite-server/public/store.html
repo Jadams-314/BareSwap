@@ -57,7 +57,7 @@
         
         setTimeout(async () => {
           try {
-            // 1. Send DELETE request to your Express backend (assumes routing by item.id or item._id)
+            // When an item is bought it is removed from the database. If the item is succesfuly removed and there are no items left 'No items in teh store.' is displayed.
             const deleteResponse = await fetch(`http://localhost:3000/items/${item.id || item._id}`, {
               method: 'DELETE'
             });
