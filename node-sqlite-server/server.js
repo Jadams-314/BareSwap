@@ -1,3 +1,10 @@
+//This is the main file to initialize Node.js
+
+//Node.js allows for javascript to be used as the backend. typically without node.js other languages like java, python, etc are used because for secruity reasons webpages are not allowed to talk to the backend directly and js is fundamentally a language for webpage behaviors.
+
+
+
+
 import express from 'express';
 import { DatabaseSync } from 'node:sqlite';
 import cors from 'cors';
