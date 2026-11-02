@@ -1,95 +1,78 @@
+const container = document.getElementById("image-container");
+const textOverlay = document.getElementById("textOverlay");
 
-const container = document.getElementById('image-container'); 
-const textOverlay = document.getElementById("textOverlay"); 
+const signupbtn = document.getElementById("showBtn");
+const login = document.getElementById("form1");
+const signup = document.getElementById("form2");
 
-  const signupbtn = document.getElementById('showBtn');
-  const login = document.getElementById('form1');
-  const signup = document.getElementById('form2');
-if (signupbtn && login && signup){
- 
-  signupbtn.addEventListener('click', (e) => {
-     e.preventDefault();
-    login.style.display = 'none';
-    signup.style.display = 'block';
-  });
+if (signupbtn && login && signup) {
+    signupbtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        login.style.display = "none";
+        signup.style.display = "block";
+    });
 }
-if(container && textOverlay){
-container.appendChild(textOverlay);
-}
-// Credentials constants
-const TEST_USER = "user";
-const TEST_PASSWORD = "password";
 
-function checkreset() { 
-    window.location.reload(); 
+if (container && textOverlay) {
+    container.appendChild(textOverlay);
 }
-function checkreturnlogin(){
+
+function checkreset() {
     window.location.reload();
-
 }
 
-function checkuser() { 
-    const user = document.getElementById("user").value; 
-    const first = document.getElementById("first").value; 
-    const second = document.getElementById("second").value; 
-    const message2 = document.getElementById("message2"); 
+function checkreturnlogin() {
+    window.location.reload();
+}
 
-    
-    if (user === TEST_USER) {
-        
-        if (first !== TEST_PASSWORD || second !== TEST_PASSWORD) {
-            message2.innerHTML = "Incorrect password entered.";
-            message2.style.color = "red";
-            //checkpass(); 
-        } else {
-            //checkpass();
-            if (checkpass()) {
-                message2.innerHTML = `<br>Welcome, ${TEST_USER}!<br>`;
-                message2.style.color = "green";
-            }
-        }
-    } else {
-        
-        message2.innerHTML = "Incorrect username.";
-        message2.style.color = "red";
-        //checkpass();
+function checkpass() {
+    const firstName = document.getElementById("first_name").value.trim();
+    const lastName = document.getElementById("last_name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const first = document.getElementById("first").value;
+    const second = document.getElementById("second").value;
+    const message = document.getElementById("message");
+
+    message.style.color = "red";
+
+    if (firstName === "" || lastName === "" || email === "") {
+        message.textContent = "Please enter your name and email.";
+        return false;
     }
-}
 
-function checkpass() { 
-    const user = document.getElementById("user").value;
-    const first = document.getElementById("first").value; 
-    const second = document.getElementById("second").value; 
-    const message = document.getElementById("message"); 
+    if (first === "" || second === "") {
+        message.textContent = "Please enter and confirm your password.";
+        return false;
+    }
 
-    if (first === "" || second === "") { 
-        message.innerHTML = "You did not enter a password. <br> Please enter one now. <br>"; 
-        message.style.color = "red"; 
-        return false; 
-    } 
-    
-    if (first !== second) { 
-        message.innerHTML = "Passwords do not match. <br>"; 
-        message.style.color = "red"; 
-        return false; 
-    } 
-    else{ 
-    
-    message.innerHTML = "Hooray! You have matched passwords! <br>"; 
-    message.innerHTML = "<br>Welcome" + "  " + user + "!";
+    if (first !== second) {
+        message.textContent = "Passwords do not match.";
+        return false;
+    }
+
+    message.textContent =
+        "Form checks passed. Account has not been saved yet.";
     message.style.color = "green";
-    setTimeout(() => {
-     window.location.href = 'list.html';
-  }, 2000);
-   
 
     return true;
-    } 
 }
 
+window.addEventListener("load", () => {
+    const form = document.getElementById("signup-form");
 
-window.addEventListener('load', () => { 
-    document.getElementById("submit").addEventListener('click', checkuser); 
-    document.getElementById("reset").addEventListener('click', checkreset); 
-    document.getElementById("rtrnlogin").addEventListener('click', checkreturnlogin); 
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        checkpass();
+    });
+
+    form.addEventListener("reset", () => {
+        document.getElementById("message").textContent = "";
+        document.getElementById("message2").textContent = "";
+    });
+
+    const returnButton = document.getElementById("rtrnlogin");
+
+    if (returnButton) {
+        returnButton.addEventListener("click", checkreturnlogin);
+    }
 });
