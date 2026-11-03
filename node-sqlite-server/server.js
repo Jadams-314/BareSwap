@@ -4,25 +4,32 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-
+//Tells the server where it is located on comuter
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3000;
 
+//Parses JSON
 app.use(express.json());
+
+//Enables Cross-Origin Resource Sharing. Different ports can communicate
 app.use(cors());
 
-
+//Express.static exposes the folders to the browser. without these lines files
+//in the folders will not show in webbrowser. for example: comment out 'stylesheets' and the webpage loses css
+//express.static allows for anything in the directory to be automatically grabbed.
+//without express.static you would need to type out the manual root
 app.use(express.static(path.join(__dirname, 'public')));
-
-
 app.use('/stylesheets', express.static(path.join(__dirname, 'stylesheets')));
 app.use('/javascript', express.static(path.join(__dirname, 'javascript')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-
+//node:sqlite syntax
+//This is NOT asynchronous. For the scope of our project it is fine,
+//but this is technically the performance bottleneck. Node.js runs on a single thread and
+//the db will pause until the htread finishes.
 const db = new DatabaseSync(path.join(__dirname, 'store.db'));
 
 
