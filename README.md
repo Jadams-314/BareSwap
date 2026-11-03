@@ -1,6 +1,27 @@
 # BareSwap
 Comp 390 Group Project
 
+
+Sprint 2 due Nove 1 2026:
+
+spring goal:
+
+20 point budget
+days=point
+
+login ----> signup
+log-----> login
+rename html and js
+
+
+Abdul/jacob database (Highest priority) 8 points
+justin nmp server (connection between database and website) (high priority) 5
+nana image upload to database (medium priority) 2 points
+abdul user authentication (lowest priority) 1 points
+justin css redesign website/renaming
+
+
+
 Sprint 1 due Oct 11 2026:
 
 sprint goal:
@@ -11,17 +32,25 @@ sprint goal:
 days=points
 
 Justin- Front end ui (website)High priority 7 points
-
+-------------------------
 Everyone- Pseudo database high priority 4 points
-
+-------------------------
 Abdul- Back end Java Highest priority 6 points
-
+-------------------------
 Nana- Junit testing (java dependency) medium priority 2 points
-
+-------------------------
 Jacob- QA testing low priority 1 point
-
+-------------------------
   For prototype one we should be able to have a functional portal that allows for account creation with the ability to login with saved credentials. 
   User should be able to upload image.
   User should be able to download stored images from other users
+  
+Back end java should be done by Oct 14th. image stored to file when 'selling' and image removed from file when 'bought'. Talked to professor and this is all the functionality we need for first sprint.
 
-test1
+Front end Website needs to be done by Oct 14th. Functional UI and shows images stored in java.
+
+Start testing when java gets posted to github due october 16th
+
+Start user testing/qa after everything else. due October 17th
+
+--------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.46.1.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['Backend']
+            include '**/*.java'
+            exclude 'node_modules/**'
+        }
+    }
+}
+
+application {
+    mainClass = 'Main'
+}
