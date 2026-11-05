@@ -2,25 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <title>Camera System</title>
-<style>
-    body {font-family: sans-serif; text-align: center;}
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+    <title>Camera System</title>
+    <style>
+        :root {
+            --bg: #e9edf2;
+            --panel: #ffffff;
+            --ink: #16212e;
+            --muted: #66758a;
+            --accent: #2f5bea;
+            --danger: #c2410c;
+            --line: #d3dae3;
+        }
 
-    video {width: 100%; max-width: 480px; background: black;}
-    #library {display: flex; flex-wrap: wrap; justify-content: center;}
-    .photo {margin: 6px; }
-    .photo img {width: 150px; display: block;} 
-  </style>
-  </head>
-<body> 
-    <h1>Camera</h1>
-    <video id="preview" autoplay playsinline muted></video>
-    <br>
-    <button id="photoBtn">Take photo</button>
+        *{box-sizing: border-box;}
 
-    <h2>Photo Library</h2>
-    <div id="library"></div>
+        body {
+            margin: 0;
+            padding: 24px 16px 48px;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+        }
 
+        .page{max-width: 640px; margin: 0 auto;}
+
+        h1{font-size: 28px; margin: 0 0 4px; }
+        .intro {margin: 0 0 20px; color: var(--muted);}
+
+        /* Camera */
+        .camera{
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 12px 12px 20px;
+            text-align: center;
+
+        }
+        video{
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background: #0b0f14;
+            border-radius: 12px;
+        }
+
+        /* Photo button shape */
+        #photoBtn{
+            width: 68px;
+            height: 68px;
+            margin-top: 16px;
+            border: 4px solid var(--ink);
+            border-radius: 50%;
+            background: var(--panel);
+            cursor: pointer;
+            display: inline-grid;
+            place-items: center;
+        }
+        #photoBtn::after{
+            content: "";
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--accent);
+            transition: transform 0.1s;
+
+        }
+        #photoBtn:active::after{transform: scale(0.85);}
+        #photoBtn:focus-visible{outline: 3px solid var(--accent); outline-offset: 3px;}
+        .caption{margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+
+        /* Photo library */
+        h2{font-size: 20px; margin: 32px 0 12px;}
+        #library{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minimax(200px, 1fr));
+            gap: 12px;
+        }
+        /* Display for when there are no photos in library*/
+        #library:empty::before{
+            content:"No photos uploaded yet";
+            grid-column: 1 / -1;
+            padding: 32px 16px;
+            text-align: center;
+            color: var(--muted);
+            border-radius: 12px;
+        }
+        .photo{
+            position:relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid var(--line);
+        }
+        .photo img{
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+        .photo button{
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            padding: 4px 12px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.94);
+            color: var(--danger);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .photo button:hover{background:var(--denger); color:#fff; }
+        .photo button:focus-visible{outline: 2px solid var(--danger); outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <div class= "page">
+        <h1>Camera</h1>
+        
+        <div class="camera">
+            <video id="preview" autoplay playsinline muted></video>
+            <button id="photoBtn" aria-label="Take photo"></button>
+            <p class="caption">Take photo</p>
+        </div>
+        
+        <h2>Photo Library</h2>
+        <div id="library"></div>
+    </div> 
     <script>
         const preview = document.getElementById("preview");
         const library = document.getElementById("library");
