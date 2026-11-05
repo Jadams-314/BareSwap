@@ -1,0 +1,8 @@
+Nana created a operating camera system which is 80 percent done and will be fully working in sprint3.
+Cameresystem is located in front end folder in main.
+
+Justin updated webstore (node.js backend) plus it connects with database
+Sprint2 demo is located in the sprint2 demo branch.
+
+Abdul and Jacob created multiple java files to connect the front end to the data.
+Gradle database code is located in main.
