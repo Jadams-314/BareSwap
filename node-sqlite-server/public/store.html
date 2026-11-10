@@ -20,6 +20,8 @@
     <store id="store-container">Loading items...</store>
 
     <script>
+      //async await instead of plain js as best modern practice
+      //if not async webpage will freeze until server responds
         async function loadItems() {
             const container = document.getElementById('store-container');
             try {
@@ -35,7 +37,7 @@
                     return;
                 }
                 
-                // Loop through database items and render them(replaces div 'item-card' which is blank with the following code
+                // Loop through database items and render them(replaces text within div 'item-card' which is blank with the following code
                 items.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'item-card';
